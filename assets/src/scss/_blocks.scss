@@ -1,0 +1,25 @@
+
+.block-bottom-margin-small {
+  margin-bottom: rem-calc(20);
+}
+
+.block-bottom-margin-medium {
+  margin-bottom: rem-calc(40);
+  @include breakpoint(medium) {
+    margin-bottom: rem-calc(50);
+  }
+}
+
+.block-bottom-margin-large {
+  margin-bottom: rem-calc(80);
+  @include breakpoint(medium) {
+    margin-bottom: rem-calc(100);
+  }
+}
+
+.block-bottom-margin-extra-large {
+  margin-bottom: rem-calc(100);
+  @include breakpoint(medium) {
+    margin-bottom: rem-calc(180);
+  }
+}

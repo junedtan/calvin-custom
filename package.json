@@ -1,0 +1,29 @@
+{
+  "name": "foundation-sites-template",
+  "version": "1.0.0",
+  "description": "Basic template for a new Foundation for Sites project.",
+  "main": "gulpfile.js",
+  "devDependencies": {
+    "browser-sync": "^2.27.5",
+    "foundation-sites": "^6.7.1",
+    "gulp": "^3.9.0",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-load-plugins": "^1.6.0",
+    "gulp-minify": "^3.1.0",
+    "gulp-sass": "^2.1.0",
+    "gulp-sourcemaps": "^2.6.5",
+    "motion-ui": "^1.2.3",
+    "normalize-scss": "^5.0.0",
+    "what-input": "^5.2.10"
+  },
+  "scripts": {
+    "start": "gulp",
+    "build": "gulp sass",
+    "browser": "gulp browser"
+  },
+  "author": "",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {}
+}

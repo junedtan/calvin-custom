@@ -1,0 +1,27 @@
+@charset 'utf-8';
+
+@import 'settings';
+@import 'foundation';
+
+@include foundation-xy-grid-classes;
+@include foundation-flex-classes;
+@include foundation-responsive-embed;
+
+@import '_mixins';
+@import '_fonts';
+@import '_typography';
+@import '_global';
+@import '_blocks';
+
+// editor overrides
+.grid-container {
+  padding: 0 40px;
+}
+
+.wp-block {
+  max-width: 1440px;
+}
+
+.reveal {
+  display: none;
+}

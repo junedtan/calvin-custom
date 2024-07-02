@@ -1,0 +1,37 @@
+* {
+  transition: color 250ms, background-color 250ms, opacity 250ms;
+}
+
+html {
+  overflow-x: hidden;
+  max-width: 100%;
+  width: 100%;
+}
+
+header {
+  background-color: $success-color;
+  color: $black;
+  padding: 0.5rem 0;
+  @include breakpoint(medium) {
+    padding: 1.5rem 0;
+  }
+  @include breakpoint(large) {
+    padding: 2rem 0;
+  }
+  p {
+    margin: 0;
+  }
+}
+
+footer {
+  background-color: $primary-color;
+  color: $black;
+  padding: 1rem 0;
+  p {
+    margin: 0;
+  }
+}
+
+.no-touchevents {
+
+}
