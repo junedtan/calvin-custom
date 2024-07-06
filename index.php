@@ -4,15 +4,11 @@
 
 <main>
   
-  <div class="grid-container">
-    <div class="grid-x">
-      <div class="cell">
-        <?php the_title();?>
-        <?php the_content();?>
-      </div>
-    </div>
-  </div>
-                      
+  <?php 
+    get_template_part('parts/hero');
+    the_content();
+  ?>
+
 </main>
 
 <?php get_footer(); ?>

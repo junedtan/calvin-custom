@@ -3,9 +3,10 @@
     "title": "Block: Settings",
     "fields": [
         {
-            "key": "field_61342d223c3f9",
-            "label": "Bottom Margin",
-            "name": "bottom_margin",
+            "key": "field_66866294b3e71",
+            "label": "Background Color",
+            "name": "background_color",
+            "aria-label": "",
             "type": "select",
             "instructions": "",
             "required": 0,
@@ -16,17 +17,74 @@
                 "id": ""
             },
             "choices": {
-                "block-bottom-margin-none": "None",
-                "block-bottom-margin-small": "Small",
-                "block-bottom-margin-medium": "Medium",
-                "block-bottom-margin-large": "Large",
-                "block-bottom-margin-extra-large": "Extra Large"
+                "background": "Background",
+                "primary": "Primary",
+                "secondary": "Secondary",
+                "text": "Text"
             },
-            "default_value": false,
-            "allow_null": 0,
-            "multiple": 0,
-            "ui": 0,
+            "default_value": "background",
             "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_66866241b3e6f",
+            "label": "Top Margin",
+            "name": "top_margin",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "none": "None",
+                "small": "Small",
+                "medium": "Medium",
+                "large": "Large",
+                "extra-large": "Extra Large"
+            },
+            "default_value": "none",
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_61342d223c3f9",
+            "label": "Bottom Margin",
+            "name": "bottom_margin",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "none": "None",
+                "small": "Small",
+                "medium": "Medium",
+                "large": "Large",
+                "extra-large": "Extra Large"
+            },
+            "default_value": "none",
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 0,
             "ajax": 0,
             "placeholder": ""
         }
@@ -48,5 +106,6 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1630809419
+    "show_in_rest": 0,
+    "modified": 1720084144
 }

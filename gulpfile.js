@@ -6,7 +6,7 @@ var sourcemaps = require('gulp-sourcemaps');
 var concat = require('gulp-concat');
 var minify = require('gulp-minify');
 
-var proxyServer = 'foundation6.localhost';
+var proxyServer = 'localhost.mangku';
 
 var sassPaths = [
   'node_modules/foundation-sites/scss',
@@ -26,8 +26,6 @@ var concatScripts = [
   },
   {
     'scripts': [
-      'assets/src/js/page-about.js',
-      'assets/src/js/page-home.js'
     ],
     'output': 'pages.js'
   }
@@ -111,7 +109,7 @@ gulp.task('default', ['sass', 'scripts'], function() {
 
 gulp.task('watch', ['sass', 'scripts'], function() {
   gulp.watch(['assets/src/**/*.scss'], ['sass']);
-  gulp.watch(['assets/src/**/*.js'], ['scripts']);
+  gulp.watch(['assets/src/**/*.js'], ['scripts','scripts-concat']);
 });
 
 gulp.task('browser', ['sass', 'scripts', 'browser-sync'], function() {

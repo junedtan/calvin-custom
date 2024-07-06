@@ -10,22 +10,11 @@
  * @param   (int|string) $post_id The post ID this block is saved to.
  */
 
-// Create id attribute allowing for custom "anchor" value.
-$id = 'text-' . $block['id'];
-if ( ! empty($block['anchor'] ) ) {
-    $id = $block['anchor'];
-}
-
-// Create class attribute allowing for custom "className" and "align" values.
-$classes = 'block-text';
-if ( ! empty( $block['className'] ) ) {
-    $classes .= ' ' . $block['className'];
-}
-if ( ! empty( $block['align'] ) ) {
-    $classes .= ' align' . $block['align'];
-}
-
-$classes .= ' ' . get_field('bottom_margin');
+$block_fields = get_fields();
+$block_meta = ccm_get_block_metadata($block, 'text');
+$id = $block_meta['id'];
+$classes = $block_meta['classes'];
+$css_vars = $block_meta['css_vars'];
 
 ?>
 
@@ -35,11 +24,26 @@ $classes .= ' ' . get_field('bottom_margin');
   }
 </style>
 
-<section id="<?php echo esc_attr( $id ); ?>" class="<?php echo esc_attr( $classes ); ?>">
+<section id="<?php echo esc_attr( $id ); ?>" class="<?php echo esc_attr( implode(' ', $classes) ); ?>" style="<?php echo esc_attr( implode(';', $css_vars) ); ?>">
   <div class="grid-container">
     <div class="grid-x grid-margin-x">
-      <div class="cell">
-        <?php the_field( 'text' ); ?>
+      <div class="cell narrow-container narrower medium-pl-2 medium-pr-2 flex-container align-center align-middle cancel-last-margin">
+        <div>
+        <?php
+          get_template_part('parts/block-title', null, array(
+            'title' => $block_fields['title'],
+            'subtitle' => $block_fields['subtitle'],
+          ));
+        ?>
+        <div class="mb-1 cancel-last-margin">
+          <?php the_field( 'text' ); ?>
+        </div>
+        <?php if ($block_fields['cta']): ?>
+          <p>
+            <a class="cta" href="<?php print $block_fields['cta']['url']; ?>" target="<?php print $block_fields['cta']['target']; ?>"><?php print $block_fields['cta']['title'];?></a>
+          </p>
+        <?php endif; ?>
+        </div>
       </div>
     </div>
   </div>

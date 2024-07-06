@@ -1,11 +1,11 @@
 {
-    "key": "group_61342c60b7431",
-    "title": "Block: Text",
+    "key": "group_6687930e810ec",
+    "title": "Block : Text Columns",
     "fields": [
         {
-            "key": "field_61342c6c04b8d",
-            "label": "Text",
-            "name": "text",
+            "key": "field_6687930fea5cb",
+            "label": "Left Column",
+            "name": "left_column",
             "aria-label": "",
             "type": "wysiwyg",
             "instructions": "",
@@ -23,11 +23,11 @@
             "delay": 0
         },
         {
-            "key": "field_6686b22efb3ba",
-            "label": "CTA",
-            "name": "cta",
+            "key": "field_66879323ea5cc",
+            "label": "Right Column",
+            "name": "right_column",
             "aria-label": "",
-            "type": "link",
+            "type": "wysiwyg",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -36,7 +36,11 @@
                 "class": "",
                 "id": ""
             },
-            "return_format": "array"
+            "default_value": "",
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 1,
+            "delay": 0
         }
     ],
     "location": [
@@ -44,7 +48,7 @@
             {
                 "param": "block",
                 "operator": "==",
-                "value": "acf\/text"
+                "value": "acf\/text-columns"
             }
         ]
     ],
@@ -57,5 +61,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1720103516
+    "modified": 1720161077
 }

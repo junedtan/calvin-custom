@@ -1,13 +1,13 @@
 {
-    "key": "group_61342c60b7431",
-    "title": "Block: Text",
+    "key": "group_6686b26676d3a",
+    "title": "Block: Titled Blocks",
     "fields": [
         {
-            "key": "field_61342c6c04b8d",
-            "label": "Text",
-            "name": "text",
+            "key": "field_6686b2666d459",
+            "label": "Title",
+            "name": "title",
             "aria-label": "",
-            "type": "wysiwyg",
+            "type": "text",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -17,17 +17,17 @@
                 "id": ""
             },
             "default_value": "",
-            "tabs": "all",
-            "toolbar": "full",
-            "media_upload": 1,
-            "delay": 0
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
         },
         {
-            "key": "field_6686b22efb3ba",
-            "label": "CTA",
-            "name": "cta",
+            "key": "field_6686b2776d45a",
+            "label": "Subtitle\/Eyebrow",
+            "name": "subtitle",
             "aria-label": "",
-            "type": "link",
+            "type": "text",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -36,7 +36,11 @@
                 "class": "",
                 "id": ""
             },
-            "return_format": "array"
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
         }
     ],
     "location": [
@@ -45,6 +49,13 @@
                 "param": "block",
                 "operator": "==",
                 "value": "acf\/text"
+            }
+        ],
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/image-carousel"
             }
         ]
     ],
@@ -57,5 +68,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1720103516
+    "modified": 1720179994
 }

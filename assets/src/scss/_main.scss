@@ -9,26 +9,53 @@ html {
 }
 
 header {
-  background-color: $success-color;
-  color: $black;
-  padding: 0.5rem 0;
-  @include breakpoint(medium) {
-    padding: 1.5rem 0;
-  }
-  @include breakpoint(large) {
-    padding: 2rem 0;
-  }
-  p {
-    margin: 0;
-  }
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
 }
 
 footer {
-  background-color: $primary-color;
-  color: $black;
-  padding: 1rem 0;
-  p {
-    margin: 0;
+}
+
+.hero-title {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+}
+
+.gform_wrapper {
+  form {
+    .gfield.gfield--type-text, .gfield.gfield--type-textarea, .gfield.gfield--type-email {
+      position: relative;
+      overflow: hidden;
+      label {
+        position: absolute;
+        top: -100%;
+      }
+      input, textarea {
+        background-color: var(--cta-color);
+        color: var(--cta-bg-color);
+        border: 1px solid var(--cta-bg-color);
+        border-radius: 0;
+        padding: 12px;
+        line-height: 1 !important;
+      }
+    }
+    .gfield.gfield--type-consent {
+      position: relative;
+      overflow: hidden;
+      legend {
+        position: absolute;
+        top: -100%;
+      }
+    }
+  }
+  .gform_footer {
+    text-align: center;
   }
 }
 

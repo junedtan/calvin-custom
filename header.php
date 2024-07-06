@@ -5,6 +5,8 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<?php wp_head(); ?>
+		<?php ccm_theme_fonts(); ?>
+		<?php ccm_theme_styles(); ?>
 	</head>
 	<body <?php body_class(); ?>>
     

@@ -1,25 +1,105 @@
 
-.block-bottom-margin-small {
-  margin-bottom: rem-calc(20);
-}
-
-.block-bottom-margin-medium {
-  margin-bottom: rem-calc(40);
+.narrow-container {
   @include breakpoint(medium) {
-    margin-bottom: rem-calc(50);
+    &.narrower {
+      max-width: 800px;
+      margin-left: auto !important;
+      margin-right: auto !important;
+      }
+    &.narrow {
+      max-width: 1200px;
+      margin-left: auto !important;
+      margin-right: auto !important;
+    }  
   }
 }
 
-.block-bottom-margin-large {
-  margin-bottom: rem-calc(80);
+.block-text {
   @include breakpoint(medium) {
-    margin-bottom: rem-calc(100);
+    height: 500px;
+    > .grid-container {
+      height: 100%;
+      > .grid-x {
+        height: 100%;
+      }
+    }
   }
 }
 
-.block-bottom-margin-extra-large {
-  margin-bottom: rem-calc(100);
+.block-media {
+  &.type-single-image, &.type-slider {
+    .cell {
+      height: 80vh;
+    }
+  }
+  &.type-video, &.type-embed {
+    .cell {
+      aspect-ratio: 16 / 9;
+    }
+  }
+  video, iframe {
+    width: 100%;
+    height: 100%;
+  }
+  .flickity-prev-next-button {
+    width: 32px;
+    height: 32px;
+    background: transparent;
+    color: $white;
+    opacity: 0.2;
+    @include breakpoint(medium) {
+      width: 48px;
+      height: 48px;  
+    }
+    @include breakpoint(large) {
+      width: 64px;
+      height: 64px;  
+    }
+  }
+  .flickity-button:focus {
+    box-shadow: none;
+  }
+}
+
+.block-text-columns {
+  .columns-container {
+    margin-left: calc(0.5 * #{map-get($grid-container-padding, small)});
+    margin-right: calc(0.5 * #{map-get($grid-container-padding, small)});
+    width: calc(100% - #{map-get($grid-container-padding, small)});
+  }
   @include breakpoint(medium) {
-    margin-bottom: rem-calc(180);
+    .columns-container {
+      width: 100%;
+      > .grid-x > .cell:first-child {
+        padding-right: #{2 * $hs-unit};
+      }
+      > .grid-x > .cell:last-child {
+        padding-left: #{2 * $hs-unit};
+      }
+    }
+  }
+}
+
+.block-image-carousel {
+  .carousel-cell {
+    @include fluid-props(200px, 500px, width);
+    @include fluid-props(200px, 500px, height);
+    margin-right: #{0.5 * $hs-unit};
+  }
+}
+
+.block-image-grid {
+  .images-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: #{0.5 * $hs-unit};
+    > div {
+      aspect-ratio: 1 / 1;
+      flex: 0 0 calc(50% - #{0.5 * $hs-unit});
+    }
+    @include breakpoint(medium) {
+      gap: $hs-unit;
+      flex: 0 0 calc(50% - #{$hs-unit});
+    }
   }
 }

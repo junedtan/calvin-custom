@@ -53,11 +53,12 @@ add_filter('body_class', 'ccm_body_class');
 
 // add css and javascript
 function ccm_css_js() {
-  // wp_enqueue_script( 'flickity-js', 'https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js', array(), '', true );
-  wp_enqueue_script( 'global', get_template_directory_uri() . '/assets/js/global.min.js', array(), CSS_JS_VERSION, true );
-  wp_enqueue_script( 'pages', get_template_directory_uri() . '/assets/js/pages.min.js', array(), CSS_JS_VERSION, true );
+  wp_enqueue_script("jquery-ol", "https://code.jquery.com/jquery-3.7.1.min.js");
+  wp_enqueue_script( 'flickity-js', 'https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js', array(), '', true );
+  wp_enqueue_script( 'global', get_template_directory_uri() . '/assets/js/global.min.js', array("jquery-ol"), CSS_JS_VERSION, true );
+  // wp_enqueue_script( 'pages', get_template_directory_uri() . '/assets/js/pages.min.js', array("jquery-core-js"), CSS_JS_VERSION, true );
   // css
-  // wp_enqueue_style( 'flickity-css', 'https://unpkg.com/flickity@2/dist/flickity.min.css', array(), '', 'all' );
+  wp_enqueue_style( 'flickity-css', 'https://unpkg.com/flickity@2/dist/flickity.min.css', array(), '', 'all' );
   wp_enqueue_style( 'app', get_template_directory_uri() . '/assets/css/app.css', array(), CSS_JS_VERSION, 'all' );
 }
 add_action('wp_enqueue_scripts', 'ccm_css_js');
@@ -105,6 +106,10 @@ if( function_exists('acf_add_options_page') ) {
     'page_title'  => 'Global Content',
     'menu_title'  => 'Global Content',
   ));
+  acf_add_options_page(array(
+    'page_title'  => 'Theme Settings',
+    'menu_title'  => 'Theme Settings',
+  ));
 }
 
 // editor css for blocks preview styling
@@ -120,12 +125,86 @@ function ccm_acf_init_block_types() {
         'name'              => 'text',
         'title'             => __('Text'),
         'render_template'   => 'blocks/text.php',
-        'category'          => 'foundation6',
+        'category'          => 'calvin-custom-theme',
         'icon'              => 'buddicons-buddypress-logo',
         'keywords'          => array( 'text' ),
         'mode'              => 'preview',
-        'supports'          => array('mode' => TRUE),
+        'supports'          => array('mode' => TRUE, 'anchor' => TRUE),
+      )
+    );
+    acf_register_block_type(
+      array(
+        'name'              => 'media',
+        'title'             => __('Media'),
+        'render_template'   => 'blocks/media.php',
+        'category'          => 'calvin-custom-theme',
+        'icon'              => 'buddicons-buddypress-logo',
+        'keywords'          => array( 'media' ),
+        'mode'              => 'preview',
+        'supports'          => array('mode' => TRUE, 'anchor' => TRUE),
+      )
+    );
+    acf_register_block_type(
+      array(
+        'name'              => 'text-columns',
+        'title'             => __('Text Columns'),
+        'render_template'   => 'blocks/text-columns.php',
+        'category'          => 'calvin-custom-theme',
+        'icon'              => 'buddicons-buddypress-logo',
+        'keywords'          => array( 'text-columns' ),
+        'mode'              => 'preview',
+        'supports'          => array('mode' => TRUE, 'anchor' => TRUE),
+      )
+    );
+    acf_register_block_type(
+      array(
+        'name'              => 'image-carousel',
+        'title'             => __('Image Carousel'),
+        'render_template'   => 'blocks/image-carousel.php',
+        'category'          => 'calvin-custom-theme',
+        'icon'              => 'buddicons-buddypress-logo',
+        'keywords'          => array( 'image carousel' ),
+        'mode'              => 'preview',
+        'supports'          => array('mode' => TRUE, 'anchor' => TRUE),
+      )
+    );
+    acf_register_block_type(
+      array(
+        'name'              => 'image-grid',
+        'title'             => __('Image Grid'),
+        'render_template'   => 'blocks/image-grid.php',
+        'category'          => 'calvin-custom-theme',
+        'icon'              => 'buddicons-buddypress-logo',
+        'keywords'          => array( 'image grid' ),
+        'mode'              => 'preview',
+        'supports'          => array('mode' => TRUE, 'anchor' => TRUE),
       )
     );
   }
 }
+
+// hide core blocks from editor
+function ccm_allowed_block_types( $allowed_blocks, $editor_context ) {
+  return array(
+    'acf/text',
+    'acf/media',
+    'acf/text-columns',
+    'acf/image-carousel',
+    'acf/image-grid',
+  );
+}
+add_filter( 'allowed_block_types_all', 'ccm_allowed_block_types', 10, 2);
+
+add_filter( 'gform_disable_form_theme_css', '__return_true' );
+
+function ccm_custom_new_menu() {
+  register_nav_menus(
+    array(
+      'main-navigation' => __( 'Main Navigation' ),
+    )
+  );
+}
+add_action( 'init', 'ccm_custom_new_menu' );
+
+require_once(__DIR__.'/functions-theme.php');
+require_once(__DIR__.'/shortcodes.php');
