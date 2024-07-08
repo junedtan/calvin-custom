@@ -95,11 +95,13 @@
     gap: #{0.5 * $hs-unit};
     > div {
       aspect-ratio: 1 / 1;
-      flex: 0 0 calc(50% - #{0.5 * $hs-unit});
+      flex: 0 0 calc(50% - #{0.25 * $hs-unit});
     }
     @include breakpoint(medium) {
       gap: $hs-unit;
-      flex: 0 0 calc(50% - #{$hs-unit});
+      > div {
+        flex: 0 0 calc(50% - #{0.5 * $hs-unit});
+      }
     }
   }
 }

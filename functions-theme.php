@@ -22,6 +22,7 @@ function ccm_load_color_field_choices( $field ) {
   return $field;  
 }
 add_filter('acf/load_field/name=background_color', 'ccm_load_color_field_choices');
+add_filter('acf/load_field/name=hero_background_color', 'ccm_load_color_field_choices');
 
 function ccm_get_block_metadata($block, $block_type) {
   // Create id attribute allowing for custom "anchor" value.
@@ -73,8 +74,9 @@ function ccm_get_block_metadata($block, $block_type) {
     }
   }
   if ($selected_color) {
-    $css_vars[] = '--cta-bg-color:'.$selected_color['complement_hex_code'];
-    $css_vars[] = '--cta-color:'.$selected_color['hex_code'];
+    $css_vars[] = '--bg-color:'.$selected_color['background'];
+    $css_vars[] = '--text-color:'.$selected_color['text'];
+    $css_vars[] = '--accent-color:'.$selected_color['accent'];
   }
 
   return array(
@@ -142,11 +144,7 @@ function ccm_theme_styles() {
   foreach ($theme_colors as $color) {
     $css_definitions[] = array(
       'selector' => '.bg-color-'.$color['key'],
-      'properties' => "background-color:".$color['hex_code'].";color:".$color['complement_hex_code'].";",
-    );
-    $css_definitions[] = array(
-      'selector' => '.color-'.$color['key'],
-      'properties' => "color:".$color['hex_code'].";",
+      'properties' => "background-color:".$color['background'].";color:".$color['text'].";--text-color:".$color['text'].";--accent-color:".$color['accent'],
     );
   }
 
@@ -225,12 +223,6 @@ function ccm_theme_styles() {
 
 
   print '<style>';
-  // generic color variable
-  print 'body {';
-  foreach ($theme_colors as $color) {
-    print '--color-'.$color['key'].': '.$color['hex_code'].';';
-  }
-  print '}';
   // let's go!
   foreach ($css_definitions as $definition) {
     print $definition['selector']." {".$definition['properties']."}";

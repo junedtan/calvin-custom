@@ -19,7 +19,7 @@
   
 ?>
 <?php if ($background_image): ?>
-  <section id="hero" class="bg-color-primary hero position-relative logo-color-flip <?php print ($fullscreen) ? 'fullscreen' : ''; ?>" aria-hidden="true">
+  <section id="hero" class="bg-color-<?php print get_field('hero_background_color'); ?> hero position-relative logo-color-flip <?php print ($fullscreen) ? 'fullscreen' : ''; ?>" aria-hidden="true">
     <img class="image-cover mobile-hero-image hide-for-medium" src="<?php print $mobile_image; ?>" alt="">
     <img class="image-cover desktop-hero-image show-for-medium" src="<?php print $background_image; ?>" alt="">
     <?php if ($title): ?>

@@ -17,10 +17,10 @@
                 "id": ""
             },
             "choices": {
-                "background": "Background",
-                "primary": "Primary",
-                "secondary": "Secondary",
-                "text": "Text"
+                "white": "White",
+                "medium-gray": "Medium Gray",
+                "black": "Black",
+                "light-gray": "Light Gray"
             },
             "default_value": "background",
             "return_format": "value",
@@ -107,5 +107,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1720084144
+    "modified": 1720266282
 }

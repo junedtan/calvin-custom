@@ -4,6 +4,10 @@
   background-size: cover;
 }
 
+a * {
+  transition: none;
+}
+
 .image-cover {
   width: 100%;
   height: 100%;
@@ -16,6 +20,12 @@
 
 .height100 {
   height: 100%;
+}
+
+.medium-height100 {
+  @include breakpoint(medium) {
+    height: 100%;
+  }
 }
 
 .carousel-cell.fullwidth {

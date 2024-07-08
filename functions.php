@@ -55,6 +55,7 @@ add_filter('body_class', 'ccm_body_class');
 function ccm_css_js() {
   wp_enqueue_script("jquery-ol", "https://code.jquery.com/jquery-3.7.1.min.js");
   wp_enqueue_script( 'flickity-js', 'https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js', array(), '', true );
+  wp_enqueue_script( 'headroom-js', 'https://cdn.jsdelivr.net/npm/headroom.js@0.12.0/dist/headroom.min.js', array(), '', true );
   wp_enqueue_script( 'global', get_template_directory_uri() . '/assets/js/global.min.js', array("jquery-ol"), CSS_JS_VERSION, true );
   // wp_enqueue_script( 'pages', get_template_directory_uri() . '/assets/js/pages.min.js', array("jquery-core-js"), CSS_JS_VERSION, true );
   // css

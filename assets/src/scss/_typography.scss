@@ -14,10 +14,15 @@ h1 {
   }
 }
 
+.subtitle {
+  color: var(--accent-color);
+  text-transform: uppercase;
+}
+
 .cta, .button, button {
-  background-color: var(--color-secondary);
-  border: 1px solid var(--color-secondary);
-  color: var(--color-background);
+  background-color: var(--accent-color);
+  border: 1px solid var(--accent-color);
+  color: $white;
   @include fluid-props(12px,20px,padding-top);
   @include fluid-props(16px,28px,padding-left);
   @include fluid-props(12px,20px,padding-bottom);
@@ -26,11 +31,15 @@ h1 {
   line-height: 1 !important;
 }
 
+hr {
+  border-color: var(--text-color);
+}
+
 .no-touchevents {
   .cta, .button, button {
     &:hover, &:active, &:focus {
-      background-color: var(--cta-color);
-      color: var(--cta-bg-color);
+      background-color: var(--bg-color);
+      color: var(--text-color);
     }  
   }
 }

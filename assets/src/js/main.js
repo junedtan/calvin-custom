@@ -1,6 +1,17 @@
 $(document).foundation();
 
 $(document).ready(function($) {
+
+  // headroom
+  var headroom  = new Headroom(document.querySelector("header"));
+  headroom.init();  
+
+  // nav menu
+  $('.menu-toggle').on("click", function(e) {
+    e.preventDefault();
+    $('.mobile-navigation').toggleClass('is-active');
+  });
+
   $('.block-media.type-slider .image-carousel .carousel-cell').each(function() {
     $(this).height($(this).parent().outerHeight());
   });
