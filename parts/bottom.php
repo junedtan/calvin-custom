@@ -8,9 +8,7 @@
       <div class="cell">
         <div class="grid-x grid-margin-x">
           <div class="cell medium-shrink mb-2 medium-mb-0">
-            <a href="/">
-              <img class="logo" src="<?php print $global_fields['company_logo']['url']; ?>" alt="<?php print $global_fields['copyright_information']; ?>">
-            </a>
+            <?php get_template_part('parts/company-logo'); ?>
           </div>
           <div class="cell medium-auto mb-2 medium-mb-0">
             <div class="footer-center">

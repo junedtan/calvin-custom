@@ -77,6 +77,8 @@ function ccm_get_block_metadata($block, $block_type) {
     $css_vars[] = '--bg-color:'.$selected_color['background'];
     $css_vars[] = '--text-color:'.$selected_color['text'];
     $css_vars[] = '--accent-color:'.$selected_color['accent'];
+    $css_vars[] = '--button-bg-color:'.$selected_color['button']['background'];
+    $css_vars[] = '--button-color:'.$selected_color['button']['text'];
   }
 
   return array(
@@ -144,7 +146,14 @@ function ccm_theme_styles() {
   foreach ($theme_colors as $color) {
     $css_definitions[] = array(
       'selector' => '.bg-color-'.$color['key'],
-      'properties' => "background-color:".$color['background'].";color:".$color['text'].";--text-color:".$color['text'].";--accent-color:".$color['accent'],
+      'properties' => implode(';',[
+        "background-color:".$color['background'],
+        "color:".$color['text'],
+        "--text-color:".$color['text'],
+        "--accent-color:".$color['accent'],
+        "--button-color:".$color['button']['text'],
+        "--button-bg-color:".$color['button']['background'],
+      ])
     );
   }
 

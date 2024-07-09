@@ -6,7 +6,7 @@
   <div class="grid-container">
     <div class="grid-x align-justify align-middle cancel-last-margin">
       <div class="cell shrink medium-pr-2 large-pr-4">
-        <img class="logo" src="<?php print $global_fields['company_logo']['url']; ?>" alt="<?php print $global_fields['copyright_information']; ?>">
+        <?php get_template_part('parts/company-logo'); ?>
       </div>
       <div class="cell auto show-for-medium" role="navigation" aria-label="Main Navigation">
         <?php 
@@ -34,7 +34,7 @@
       <div class="cell shrink">
         <div class="grid-x align-justify align-middle cancel-last-margin close-button-container">
           <div class="cell shrink">
-            <img class="logo" src="<?php print $global_fields['company_logo']['url']; ?>" alt="<?php print $global_fields['copyright_information']; ?>">
+            <?php get_template_part('parts/company-logo'); ?>
           </div>
           <div class="cell shrink hide-for-medium">
             <a href="#" class="menu-toggle" title="Close Navigation Menu">

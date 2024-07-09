@@ -248,6 +248,61 @@
                     "enable_opacity": 0,
                     "return_format": "string",
                     "parent_repeater": "field_66865a06be749"
+                },
+                {
+                    "key": "field_668cb8a859a0b",
+                    "label": "Button",
+                    "name": "button",
+                    "aria-label": "",
+                    "type": "group",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "layout": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_668cb8b759a0c",
+                            "label": "Background",
+                            "name": "background",
+                            "aria-label": "",
+                            "type": "color_picker",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "enable_opacity": 0,
+                            "return_format": "string"
+                        },
+                        {
+                            "key": "field_668cb8c659a0d",
+                            "label": "Text",
+                            "name": "text",
+                            "aria-label": "",
+                            "type": "color_picker",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "enable_opacity": 0,
+                            "return_format": "string"
+                        }
+                    ],
+                    "parent_repeater": "field_66865a06be749"
                 }
             ]
         },
@@ -645,5 +700,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1720277217
+    "modified": 1720498428
 }

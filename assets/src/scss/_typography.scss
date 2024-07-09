@@ -20,15 +20,16 @@ h1 {
 }
 
 .cta, .button, button {
-  background-color: var(--accent-color);
-  border: 1px solid var(--accent-color);
-  color: $white;
+  background-color: var(--button-bg-color);
+  border: 1px solid var(--button-bg-color);
+  color: var(--button-color);
   @include fluid-props(12px,20px,padding-top);
   @include fluid-props(16px,28px,padding-left);
   @include fluid-props(12px,20px,padding-bottom);
   @include fluid-props(16px,28px,padding-right);
   display: inline-block;
   line-height: 1 !important;
+  transition: background-color 250ms;
 }
 
 hr {
@@ -38,8 +39,8 @@ hr {
 .no-touchevents {
   .cta, .button, button {
     &:hover, &:active, &:focus {
-      background-color: var(--bg-color);
-      color: var(--text-color);
+      background-color: var(--button-color);
+      color: var(--button-bg-color);
     }  
   }
 }

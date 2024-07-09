@@ -1,7 +1,3 @@
-* {
-  transition: color 250ms, background-color 250ms, opacity 250ms;
-}
-
 html {
   overflow-x: hidden;
   max-width: 100%;
@@ -16,6 +12,12 @@ header, footer, .mobile-navigation {
   }
 }
 
+.logo {
+  > svg {
+    width: 100%;
+    height: 100%;
+  }
+}
 header, .mobile-navigation {
   @include fluid-props(24px,42px,padding-top);
   @include fluid-props(24px,42px,padding-bottom);  
@@ -43,8 +45,20 @@ header {
 	&.headroom--unpinned {
 		transform: translateY(-100%);
 	}
+  // a, a * {
+  //   transition: none;
+  // }
   &.headroom--top {
-    // background-color: transparent;
+    background-color: transparent;
+    color: $white;
+    --button-bg-color: $white;
+    --text-color: $white;
+    --accent-color: $white;
+    svg {
+      path, circle, rect {
+        fill: $white;
+      }
+    }
   }
   .menu {
     column-gap: #{$hs-unit};
@@ -86,6 +100,10 @@ header {
 footer {
   .logo {
     @include fluid-props(100px, 225px, width);
+    > * {
+      width: 100%;
+      height: 100%;
+    }
   }
   .footer-center {
     .subtitle {
@@ -120,7 +138,7 @@ footer {
     display: inline-block;
     margin-right: 20px;
     a, a:focus, a:active {
-      color: var(--accent-color);
+      color: var(--button-bg-color);
     }
   }
 }
