@@ -24,9 +24,9 @@
 
 .block-media {
   &.type-single-image, &.type-slider {
-    .cell {
-      height: 80vh;
-    }
+    // .cell {
+    //   height: 80vh;
+    // }
   }
   &.type-video, &.type-embed {
     .cell {

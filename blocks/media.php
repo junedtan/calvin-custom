@@ -33,8 +33,8 @@ $mobile_image = isset($block_fields['mobile_image']) ? $block_fields['mobile_ima
     <div class="grid-x counter-grid-padding">
       <div class="cell">
         <?php if ($block_fields['type'] == 'single-image'): ?>
-          <img src="<?php print $block_fields['image']['url']; ?>" class="image-cover show-for-medium" />
-          <img src="<?php print $mobile_image['url']; ?>" class="image-cover hide-for-medium" />
+          <img src="<?php print $block_fields['image']['url']; ?>" class="show-for-medium" />
+          <img src="<?php print $mobile_image['url']; ?>" class="hide-for-medium" />
         <?php elseif ($block_fields['type'] == 'slider'): ?>
           <div class="image-carousel height100" data-autoplay="<?php print ($block_fields['autoplay'] ? "1" : "0"); ?>">
             <?php foreach ($block_fields['images'] as $image): ?>
