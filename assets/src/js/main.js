@@ -6,6 +6,12 @@ var pageDimensions = {
   headerHeight: 0,
 };
 
+var blockSettings = {
+  postGrid: {
+    scrollOffset: 0,
+  }
+};
+
 $(document).ready(function($) {
 
   //dimensions
@@ -116,6 +122,7 @@ $(document).ready(function($) {
         $postContainer.find('.post-grid-item').addClass('hide');
         $postContainer.find('.post-grid-item[data-page="'+page+'"]').removeClass('hide');
     }
+    $('html,body').animate({scrollTop: $postContainer.offset().top - blockSettings.postGrid.scrollOffset}, 500);  
   });
 	// Adds Flex Video to YouTube and Vimeo Embeds
   $('iframe[src*="youtube.com"], iframe[src*="vimeo.com"]').each(function() {
