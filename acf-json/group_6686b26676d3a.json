@@ -57,6 +57,13 @@
                 "operator": "==",
                 "value": "acf\/image-carousel"
             }
+        ],
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/content-index"
+            }
         ]
     ],
     "menu_order": 0,
@@ -68,5 +75,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1720179994
+    "modified": 1729001131
 }

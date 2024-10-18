@@ -66,7 +66,7 @@
 // ---------
 
 $global-font-size: 100%;
-$global-width: rem-calc(1920);
+$global-width: rem-calc(1440);
 $global-lineheight: inherit;
 $foundation-palette: (
   primary: #1779ba,
@@ -120,7 +120,7 @@ $breakpoints-hidpi: (
   hidpi-3: 3
 );
 $print-breakpoint: large;
-$breakpoint-classes: (small medium large);
+$breakpoint-classes: (small medium large xlarge xxlarge);
 
 // 3. The Grid
 // -----------
@@ -144,7 +144,7 @@ $header-font-style: normal;
 $font-family-monospace: Consolas, 'Liberation Mono', Courier, monospace;
 $header-color: inherit;
 $header-lineheight: 1.4;
-$header-margin-bottom: 1rem;
+$header-margin-bottom: 2rem;
 $header-styles: (
   small: (
     'h1': ('font-size': 24),
@@ -890,7 +890,7 @@ $grid-margin-gutters: (
 );
 $grid-padding-gutters: $grid-margin-gutters;
 $grid-container-padding: (
-  small: 32px,
+  small: 64px,
   medium: 80px,
   large: 128px
 );

@@ -1,32 +1,20 @@
 <?php 
   $global_fields = get_fields('option');
+  $footer_padding = apply_filters('ccm_footer_padding_class', '');
 ?> 
 
-<footer class="pt-1 pb-1 medium-pt-2 bg-color-<?php print $global_fields['theme_footer_bg_color']; ?>">
+<?php do_action('ccm_before_footer'); ?>
+
+<footer class="<?php print $footer_padding; ?> bg-color-<?php print $global_fields['theme_footer_bg_color']; ?>">
   <div class="grid-container">
     <div class="grid-x">
       <div class="cell">
-        <div class="grid-x grid-margin-x">
-          <div class="cell medium-shrink mb-2 medium-mb-0">
-            <?php get_template_part('parts/company-logo'); ?>
-          </div>
-          <div class="cell medium-auto mb-2 medium-mb-0">
-            <div class="footer-center">
-              <?php foreach ($global_fields['theme_footer_center_column'] as $center_footer): ?>
-                <div class="cancel-last-margin mb-1"><?php print $center_footer['content']; ?></div>
-              <?php endforeach; ?>
-            </div>
-          </div>
-          <div class="cell medium-shrink mb-2 medium-mb-0">
-            <?php print $global_fields['theme_footer_right_column']; ?>
-          </div>
-        </div>
+        <?php get_template_part('parts/footer-top'); ?>
       </div>
     </div>
     <div class="grid-x">
-      <div class="cell text-center text-uppercase copyright cancel-last-margin">
-        <hr>
-        <p>&copy; <?php print date("Y").' '.$global_fields['copyright_information']; ?> </p>
+      <div class="cell copyright cancel-last-margin">
+        <?php get_template_part('parts/footer-copyright'); ?>
       </div>
     </div>
   </div>

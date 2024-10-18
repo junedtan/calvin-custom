@@ -1,8 +1,8 @@
 <?php
 /**
- * Block template file: blocks/text-columns.php
+ * Block template file: blocks/content-index.php
  *
- * Text Columns Block Template.
+ * Text Block Template.
  *
  * @param   array $block The block settings and attributes.
  * @param   string $content The block inner HTML (empty).
@@ -11,7 +11,7 @@
  */
 
 $block_fields = get_fields();
-$block_meta = ccm_get_block_metadata($block, 'text-columns');
+$block_meta = ccm_get_block_metadata($block, 'content-index');
 $id = $block_meta['id'];
 $classes = $block_meta['classes'];
 $css_vars = $block_meta['css_vars'];
@@ -26,21 +26,8 @@ $css_vars = $block_meta['css_vars'];
 
 <section id="<?php echo esc_attr( $id ); ?>" class="<?php echo esc_attr( implode(' ', $classes) ); ?>" style="<?php echo esc_attr( implode(';', $css_vars) ); ?>">
   <div class="grid-container">
-    <div class="grid-x">
-      <div class="cell columns-container">
-        <div class="grid-x align-<?php print $block_fields['vertical_align']; ?>">
-          <div class="cell medium-6 left-column mb-1 medium-mb-0 cancel-last-margin">
-            <div>
-              <?php print $block_fields['left_column']; ?>
-            </div>
-          </div>
-          <div class="cell medium-6 right-column cancel-last-margin">
-            <div>
-              <?php print $block_fields['right_column']; ?>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    <?php 
+      get_template_part('parts/post-grid', null, $block_fields);
+    ?>
   </div>
 </section>

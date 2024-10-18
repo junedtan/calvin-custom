@@ -27,7 +27,7 @@ $css_vars = $block_meta['css_vars'];
 <section id="<?php echo esc_attr( $id ); ?>" class="<?php echo esc_attr( implode(' ', $classes) ); ?>" style="<?php echo esc_attr( implode(';', $css_vars) ); ?>">
   <div class="grid-container">
     <div class="grid-x grid-margin-x">
-      <div class="cell narrow-container narrower medium-pl-2 medium-pr-2 flex-container align-center align-middle cancel-last-margin">
+      <div class="cell cancel-last-margin">
         <div>
         <?php
           get_template_part('parts/block-title', null, array(
@@ -36,7 +36,7 @@ $css_vars = $block_meta['css_vars'];
           ));
         ?>
         <div class="mb-1 cancel-last-margin">
-          <?php the_field( 'text' ); ?>
+          <?php print apply_filters('the_content', get_field( 'text' )); ?>
         </div>
         <?php if ($block_fields['cta']): ?>
           <p>

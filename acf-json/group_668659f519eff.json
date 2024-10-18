@@ -264,6 +264,7 @@
                         "id": ""
                     },
                     "layout": "block",
+                    "parent_repeater": "field_66865a06be749",
                     "sub_fields": [
                         {
                             "key": "field_668cb8b759a0c",
@@ -301,8 +302,7 @@
                             "enable_opacity": 0,
                             "return_format": "string"
                         }
-                    ],
-                    "parent_repeater": "field_66865a06be749"
+                    ]
                 }
             ]
         },
@@ -397,7 +397,8 @@
                         "100": "Thin",
                         "300": "Light",
                         "400": "Regular",
-                        "500": "Semi-bold",
+                        "500": "Medium",
+                        "600": "Semi-bold",
                         "700": "Bold",
                         "900": "Extra Bold"
                     },
@@ -405,6 +406,7 @@
                     "return_format": "value",
                     "multiple": 0,
                     "allow_null": 0,
+                    "allow_in_bindings": 1,
                     "ui": 0,
                     "ajax": 0,
                     "placeholder": "",
@@ -597,6 +599,27 @@
             "append": ""
         },
         {
+            "key": "field_670a8acef6679",
+            "label": "Mobile Nav Background Color",
+            "name": "theme_mobile_nav_background_color",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
             "key": "field_66892a1c87c29",
             "label": "Footer Background Color",
             "name": "theme_footer_bg_color",
@@ -687,7 +710,7 @@
             {
                 "param": "options_page",
                 "operator": "==",
-                "value": "acf-options-theme-settings"
+                "value": "theme-settings"
             }
         ]
     ],
@@ -700,5 +723,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1720498428
+    "modified": 1728744914
 }

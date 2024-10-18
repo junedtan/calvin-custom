@@ -15,7 +15,7 @@ a * {
 }
 
 .fullscreen {
-  height: 100vh;
+  height: 100svh;
 }
 
 .height100 {
@@ -45,28 +45,24 @@ a * {
 }
 
 @include breakpoint(medium) {
+  .counter-grid-padding {
+    margin-left: calc(-0.5 * #{map-get($grid-container-padding, medium)});
+    margin-right: calc(-0.5 * #{map-get($grid-container-padding, medium)});
+  }
+  .counter-grid-padding-left {
+    margin-left: calc(-0.5 * #{map-get($grid-container-padding, medium)});
+  }
+  
+  .counter-grid-padding-right {
+    margin-right: calc(-0.5 * #{map-get($grid-container-padding, medium)});
+  }
   .medium-cancel-counter-grid-padding {
     margin-left: 0;
     margin-right: 0;
   }
-  .counter-grid-padding {
-    margin-left: calc(-0.5 * #{map-get($grid-container-padding, medium)});
-    margin-right: calc(-0.5 * #{map-get($grid-container-padding, medium)});
-  }
-  .counter-grid-padding-left {
-    margin-left: calc(-0.5 * #{map-get($grid-container-padding, medium)});
-  }
-  
-  .counter-grid-padding-right {
-    margin-right: calc(-0.5 * #{map-get($grid-container-padding, medium)});
-  }
 }
 
 @include breakpoint(large) {
-  .large-cancel-counter-grid-padding {
-    margin-left: 0;
-    margin-right: 0;
-  }
   .counter-grid-padding {
     margin-left: calc(-0.5 * #{map-get($grid-container-padding, large)});
     margin-right: calc(-0.5 * #{map-get($grid-container-padding, large)});
@@ -77,6 +73,10 @@ a * {
   
   .counter-grid-padding-right {
     margin-right: calc(-0.5 * #{map-get($grid-container-padding, large)});
+  }
+  .large-cancel-counter-grid-padding {
+    margin-left: 0;
+    margin-right: 0;
   }
 }
 
@@ -97,6 +97,9 @@ $spacer-max: 11;
 }
 
 @for $counter from 1 to $spacer-max {
+  .mb--#{$counter} {
+    margin-bottom: #{-$counter * $vs-unit};
+  }
   .mb-#{$counter} {
     margin-bottom: #{$counter * $vs-unit};
   }
@@ -148,6 +151,15 @@ $spacer-max: 11;
     margin-bottom: 0 !important;
   }
   .medium-mt-0 {
+    margin-top: 0 !important;
+  }
+}
+
+@include breakpoint(large) {
+  .large-mb-0 {
+    margin-bottom: 0 !important;
+  }
+  .large-mt-0 {
     margin-top: 0 !important;
   }
 }

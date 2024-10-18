@@ -13,61 +13,21 @@ header, footer, .mobile-navigation {
 }
 
 .logo {
-  > svg {
+  > svg, > img {
     width: 100%;
     height: 100%;
   }
 }
+
 header, .mobile-navigation {
-  @include fluid-props(24px,42px,padding-top);
-  @include fluid-props(24px,42px,padding-bottom);  
-  .logo {
-    @include fluid-props(32px,75px,height);
-  }
-  .socmed-item {
-    font-size: 32px;
-  }
-  .menu {
+  ul, ul.menu {
     list-style: none;
     margin: 0;
     padding: 0;
-    display: flex;
-  }
-}
-
-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 101;
-  transition: background-color 500ms, transform 250ms;
-	&.headroom--unpinned {
-		transform: translateY(-100%);
-	}
-  // a, a * {
-  //   transition: none;
-  // }
-  &.headroom--top {
-    background-color: transparent;
-    color: $white;
-    --button-bg-color: $white;
-    --text-color: $white;
-    --accent-color: $white;
-    svg {
-      path, circle, rect {
-        fill: $white;
-      }
-    }
-  }
-  .menu {
-    column-gap: #{$hs-unit};
   }
 }
 
 .menu-toggle {
-  font-size: 32px;
-  margin-right: calc(0.5 * #{map-get($grid-container-padding,small)});
   &, &:hover, &:active, &:focus {
     color: var(--accent-color);
   }
@@ -88,102 +48,60 @@ header {
     opacity: 0;
     pointer-events: none;
   }
-  .close-button-container {
-    @include fluid-props(24px,42px,padding-bottom);  
-  }
-  .menu {
-    flex-direction: column;
-    row-gap: #{0.5 *$hs-unit};
-  }
 }
 
-footer {
-  .logo {
-    @include fluid-props(100px, 225px, width);
-    > * {
-      width: 100%;
-      height: 100%;
-    }
-  }
-  .footer-center {
-    .subtitle {
-      margin-bottom: 8px;      
-    }
-    .socmed-item {
-      font-size: 32px;
-    }
-    @include breakpoint(small only) {
-      > div:last-child {
-        margin-bottom: 0;
-      }  
-    }
-    @include breakpoint(medium) {
-      max-width: 700px;
-      margin: 0 auto;
-      display: flex;
-      flex-wrap: wrap;
-      column-gap: #{2 * $hs-unit};
-      > div {
-        flex: 0 0 calc(33.3333% - #{1.5 * $hs-unit} + 5px);
-      }
-      .subtitle {
-        margin-bottom: 16px;
-      }
-    }
-  }
-}
-
-.socmed-container {
-  .socmed-item {
-    display: inline-block;
-    margin-right: 20px;
-    a, a:focus, a:active {
-      color: var(--button-bg-color);
-    }
-  }
-}
-
-.hero-title {
+.overlay {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: 2;
 }
 
-.gform_wrapper {
-  form {
-    .gfield.gfield--type-text, .gfield.gfield--type-textarea, .gfield.gfield--type-email {
-      position: relative;
-      overflow: hidden;
-      label {
-        position: absolute;
-        top: -100%;
-      }
-      input, textarea {
-        background-color: var(--bg-color);
-        color: var(--text-color);
-        border: 1px solid var(--text-color);
-        border-radius: 0;
-        padding: 12px;
-        line-height: 1 !important;
-      }
-    }
-    .gfield.gfield--type-consent {
-      position: relative;
-      overflow: hidden;
-      legend {
-        position: absolute;
-        top: -100%;
-      }
-    }
-  }
-  .gform_footer {
-    text-align: center;
+body {
+  --sidebar-medium-width: 200px;
+  --sidebar-large-width: 250px;
+}
+
+.hero-carousel {
+  width: 100%;
+  height: 100%;
+  .carousel-cell {
+    width: 100%;
+    height: 100%;
   }
 }
 
-.no-touchevents {
+.outer-container {
+  position: relative;
+  &.with-sidebar {
+    @include breakpoint(medium) {
+      .sidebar-outer {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: end;
+        position: relative;
+      }
+      .sidebar-container {
+        width: 100%;
+        position: absolute;
+      }
+      .sidebar-container {
+        width: var(--sidebar-medium-width);
+      }
+      section > .grid-container {
+        padding-right: calc(var(--sidebar-medium-width) + #{map-get($grid-container-padding, medium)});
+      }
+    }
+    @include breakpoint(large) {
+      .sidebar-container {
+        width: var(--sidebar-large-width);
+      }
+      section > .grid-container {
+        padding-right: calc(var(--sidebar-large-width) + #{map-get($grid-container-padding, large)});
+      }
+    }
+  }
 
 }
+

@@ -155,13 +155,19 @@ function ccm_theme_styles() {
         "--button-bg-color:".$color['button']['background'],
       ])
     );
+    $css_definitions[] = array(
+      'selector' => '.color-'.$color['key'],
+      'properties' => implode(';',[
+        "color:".$color['background'],
+      ])
+    );
   }
 
   $font_classes = [];
   foreach ($theme_types as $theme_type) {
     switch ($theme_type['usage']) {
       case 'heading':
-        $font_key = 'h1, h2, h3, h4, h5, h6';
+        $font_key = 'h1, .h1-style, h2, .h2-style, h3, .h3-style, h4, .h4-style, h5, .h5-style, h6, .h6-style';
         break;
       case 'subtitle':
         $font_key = '.subtitle,.eyebrow';
@@ -189,44 +195,46 @@ function ccm_theme_styles() {
     'selector' => 'body',
     'properties' => "line-height: ".$typesetting_defaults['line_height'],
   );
-  foreach ($theme_typesetting as $typesetting) {
-    $selector = $typesetting['selector'];
-    if (in_array($selector,['h1','h2','h3','h4','h5','h6'])) {
-      $selector .= ', .'.$selector.'-style';
-    }
-    $font_sizes = ccm_split_fluid_css($typesetting['sizes']);
-    $line_heights = ccm_split_fluid_css($typesetting['line_heights'], false);
-    $kernings = ccm_split_fluid_css($typesetting['kernings'], true, false);
-    $properties = "font-size:".$font_sizes[0].';';
-    $properties_medium = "font-size:".$font_sizes[1].';';
-    $properties_large = "font-size:".$font_sizes[2].';';
-    if ($line_heights) {
-      $properties .= "line-height:".$line_heights[0].';';
-      $properties_medium .= "line-height:".$line_heights[1].';';
-      $properties_large .= "line-height:".$line_heights[2].';';
+  if (is_array($theme_typesetting)) {
+    foreach ($theme_typesetting as $typesetting) {
+      $selector = $typesetting['selector'];
+      if (in_array($selector,['h1','h2','h3','h4','h5','h6'])) {
+        $selector .= ', .'.$selector.'-style';
       }
-    if ($kernings) {
-      $properties .= "letter-spacing:".$kernings[0].';';
-      $properties_medium .= "letter-spacing:".$kernings[1].';';
-      $properties_large .= "letter-spacing:".$kernings[2].';';
-    }
-    if ($properties) {
-      $css_definitions[] = array(
-        'selector' => $selector,
-        'properties' => $properties,
-      );  
-    }
-    if ($properties_medium) {
-      $css_medium_definitions[] = array(
-        'selector' => $selector,
-        'properties' => $properties_medium,
-      );  
-    }
-    if ($properties_large) {
-      $css_large_definitions[] = array(
-        'selector' => $selector,
-        'properties' => $properties_large,
-      );  
+      $font_sizes = ccm_split_fluid_css($typesetting['sizes']);
+      $line_heights = ccm_split_fluid_css($typesetting['line_heights'], false, false);
+      $kernings = ccm_split_fluid_css($typesetting['kernings'], true, false);
+      $properties = "font-size:".$font_sizes[0].';';
+      $properties_medium = "font-size:".$font_sizes[1].';';
+      $properties_large = "font-size:".$font_sizes[2].';';
+      if ($line_heights) {
+        $properties .= "line-height:".$line_heights[0].';';
+        $properties_medium .= "line-height:".$line_heights[1].';';
+        $properties_large .= "line-height:".$line_heights[2].';';
+        }
+      if ($kernings) {
+        $properties .= "letter-spacing:".$kernings[0].';';
+        $properties_medium .= "letter-spacing:".$kernings[1].';';
+        $properties_large .= "letter-spacing:".$kernings[2].';';
+      }
+      if ($properties) {
+        $css_definitions[] = array(
+          'selector' => $selector,
+          'properties' => $properties,
+        );  
+      }
+      if ($properties_medium) {
+        $css_medium_definitions[] = array(
+          'selector' => $selector,
+          'properties' => $properties_medium,
+        );  
+      }
+      if ($properties_large) {
+        $css_large_definitions[] = array(
+          'selector' => $selector,
+          'properties' => $properties_large,
+        );  
+      }
     }
   }
 
@@ -251,4 +259,133 @@ function ccm_theme_styles() {
     print '}';
   }
   print '</style>';
+}
+
+function ccm_get_pages_hierarchy($parent_id=null) {
+  $args = array(
+    'sort_column' => 'menu_order',
+    'hierarchical' => 1,
+  );
+  if ($parent_id) {
+    $args['child_of'] = $parent_id;
+  }
+  global $post;
+  $current_page_id = $post->ID;
+  $pages = get_pages($args);
+  // level 1
+  $result = [];
+  $homepage_id = get_option('page_on_front');
+  foreach ($pages as $level1_data) {
+    if ($level1_data->ID == $homepage_id) continue; // skip homepage
+    if ($level1_data->post_parent == 0) {
+      $result[$level1_data->ID] = array(
+        'title' => $level1_data->post_title,
+        'post_name' => $level1_data->post_name,
+        'permalink' => get_permalink($level1_data),
+        'current' => ($level1_data->ID == $current_page_id),
+        'children' => [],
+      );
+      // level 2
+      foreach ($pages as $level2_data) {
+        if ($level2_data->post_parent == $level1_data->ID) {
+          $result[$level1_data->ID]['children'][$level2_data->ID] = array(
+            'title' => $level2_data->post_title,
+            'post_name' => $level2_data->post_name,
+            'permalink' => get_permalink($level2_data),
+            'current' => ($level2_data->ID == $current_page_id),
+            'children' => [],
+          );
+          // level 3
+          foreach ($pages as $level3_data) {
+            if ($level3_data->post_parent == $level2_data->ID) {
+              $result[$level1_data->ID]['children'][$level2_data->ID]['children'][$level3_data->ID] = array(
+                'title' => $level3_data->post_title,
+                'post_name' => $level3_data->post_name,
+                'permalink' => get_permalink($level3_data),
+                'current' => ($level3_data->ID == $current_page_id),
+                'children' => [],
+              );
+              // level 3
+            }        
+          }
+        }        
+      }
+  
+    }
+  }
+  // propagate "current" to parents
+  foreach ($result as $level1_id => $level1) {
+    foreach ($level1['children'] as $level2_id => $level2) {
+      if (count($level2['children']) > 0) {
+        foreach ($level2['children'] as $level3_id => $level3) {
+          if ($level3['current']) {
+            $result[$level1_id]['children'][$level2_id]['current'] = $level3['current'];
+            $result[$level1_id]['current'] = $level3['current'];  
+          }
+        }
+      } else {
+        if ($level2['current']) {
+          $result[$level1_id]['current'] = $level2['current'];  
+        }
+      }
+    }
+  }
+  return $result;
+}
+
+function ccm_get_page_metadata($page_id=null) {
+  if (!$page_id) {
+    global $post;
+    $page_id = $post->ID;
+  }
+  $page_sidenav = [];
+  $page_hierarchy = ccm_get_pages_hierarchy();
+  foreach ($page_hierarchy as $level1_id => $level1_data) {
+    if ($level1_data['current']) $page_sidenav = $level1_data;
+  }
+  return apply_filters('ccm_page_metadata', array(
+    'page_id' => $page_id,
+    'sidenav' => $page_sidenav,
+    'hide_mobile_sidebar_on' => 'medium',
+    'show_breadcrumb_on' => 'small',
+    'with_sidebar' => !empty($page_sidenav),
+  ));
+}
+
+function ccm_generate_breadcrumb_items() {
+  $page_hierarchy = ccm_get_pages_hierarchy();
+  $links = [];
+  $links[] = array(
+    'level' => 0,
+    'url' => '/',
+    'label' => apply_filters('ccm_breadcrumb_home_icon', '<span class="breadcrumb-home fa-solid fa-house">')
+  );
+  foreach ($page_hierarchy as $level1_id => $level1_data) {
+    if ($level1_data['current']) {
+      $links[] = array(
+        'level' => 1,
+        'url' => $level1_data['permalink'],
+        'label' => $level1_data['title'],
+      );
+      foreach ($level1_data['children'] as $level2_id => $level2_data) {
+        if ($level2_data['current']) {
+          $links[] = array(
+            'level' => 2,
+            'url' => $level2_data['permalink'],
+            'label' => $level2_data['title'],
+          );    
+          foreach ($level2_data['children'] as $level3_id => $level3_data) {
+            if ($level3_data['current']) {
+              $links[] = array(
+                'level' => 3,
+                'url' => $level3_data['permalink'],
+                'label' => $level3_data['title'],
+              );
+            }        
+          }    
+        }        
+      }
+    }
+  }
+  return apply_filters('ccm_breadcrumb_items', $links);
 }

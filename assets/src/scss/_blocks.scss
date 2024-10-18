@@ -1,32 +1,5 @@
-
-.narrow-container {
-  @include breakpoint(medium) {
-    &.narrower {
-      max-width: 800px;
-      margin-left: auto !important;
-      margin-right: auto !important;
-      }
-    &.narrow {
-      max-width: 1200px;
-      margin-left: auto !important;
-      margin-right: auto !important;
-    }  
-  }
-}
-
-.block-text {
-  @include breakpoint(medium) {
-    .cell {
-      min-height: 500px;
-    }
-  }
-}
-
 .block-media {
   &.type-single-image, &.type-slider {
-    // .cell {
-    //   height: 80vh;
-    // }
   }
   &.type-video, &.type-embed {
     .cell {
@@ -37,40 +10,19 @@
     width: 100%;
     height: 100%;
   }
-  .flickity-prev-next-button {
-    width: 32px;
-    height: 32px;
-    background: transparent;
-    color: $white;
-    opacity: 0.2;
-    @include breakpoint(medium) {
-      width: 48px;
-      height: 48px;  
-    }
-    @include breakpoint(large) {
-      width: 64px;
-      height: 64px;  
-    }
-  }
   .flickity-button:focus {
     box-shadow: none;
   }
 }
 
 .block-text-columns {
-  .columns-container {
-    margin-left: calc(0.5 * #{map-get($grid-container-padding, small)});
-    margin-right: calc(0.5 * #{map-get($grid-container-padding, small)});
-    width: calc(100% - #{map-get($grid-container-padding, small)});
-  }
   @include breakpoint(medium) {
     .columns-container {
-      width: 100%;
-      > .grid-x > .cell:first-child {
-        padding-right: #{2 * $hs-unit};
+      > .grid-x > .cell.left-column {
+        padding-right: #{$hs-unit};
       }
-      > .grid-x > .cell:last-child {
-        padding-left: #{2 * $hs-unit};
+      > .grid-x > .cell.right-column {
+        padding-left: #{$hs-unit};
       }
     }
   }
