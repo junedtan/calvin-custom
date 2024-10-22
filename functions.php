@@ -195,6 +195,18 @@ function ccm_acf_init_block_types() {
         'supports'          => array('mode' => TRUE, 'anchor' => TRUE),
       )
     );
+    acf_register_block_type(
+      array(
+        'name'              => 'content-accordion',
+        'title'             => __('Content Accordion'),
+        'render_template'   => 'blocks/content-accordion.php',
+        'category'          => 'calvin-custom-theme',
+        'icon'              => 'buddicons-buddypress-logo',
+        'keywords'          => array( 'content accordion' ),
+        'mode'              => 'edit',
+        'supports'          => array('mode' => TRUE, 'anchor' => TRUE),
+      )
+    );
   }
 }
 
@@ -207,6 +219,7 @@ function ccm_allowed_block_types( $allowed_blocks, $editor_context ) {
     'acf/image-carousel',
     'acf/image-grid',
     'acf/content-index',
+    'acf/content-accordion',
   );
 }
 add_filter( 'allowed_block_types_all', 'ccm_allowed_block_types', 10, 2);

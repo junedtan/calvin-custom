@@ -3,6 +3,24 @@
     "title": "Block : Text Columns",
     "fields": [
         {
+            "key": "field_6713969ea6681",
+            "label": "Content",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0,
+            "selected": 0
+        },
+        {
             "key": "field_6687930fea5cb",
             "label": "Left Column",
             "name": "left_column",
@@ -89,5 +107,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1729011260
+    "modified": 1729337004
 }

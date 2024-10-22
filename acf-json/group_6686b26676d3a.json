@@ -1,7 +1,25 @@
 {
     "key": "group_6686b26676d3a",
-    "title": "Block: Titled Blocks",
+    "title": "Block : Titled Blocks",
     "fields": [
+        {
+            "key": "field_67139621c93cf",
+            "label": "Title",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0,
+            "selected": 0
+        },
         {
             "key": "field_6686b2666d459",
             "label": "Title",
@@ -66,7 +84,7 @@
             }
         ]
     ],
-    "menu_order": 0,
+    "menu_order": 4,
     "position": "normal",
     "style": "default",
     "label_placement": "top",
@@ -75,5 +93,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1729001131
+    "modified": 1729336884
 }

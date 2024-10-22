@@ -3,6 +3,24 @@
     "title": "Block : Clickable Images",
     "fields": [
         {
+            "key": "field_671396dcef51a",
+            "label": "Content",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0,
+            "selected": 0
+        },
+        {
             "key": "field_6687db04f8f13",
             "label": "Images",
             "name": "images",
@@ -86,7 +104,7 @@
             }
         ]
     ],
-    "menu_order": 0,
+    "menu_order": 8,
     "position": "normal",
     "style": "default",
     "label_placement": "top",
@@ -95,5 +113,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1720179714
+    "modified": 1729337066
 }

@@ -81,6 +81,10 @@ function ccm_get_block_metadata($block, $block_type) {
     $css_vars[] = '--button-color:'.$selected_color['button']['text'];
   }
 
+  if (get_field('background_image')) {
+    $classes[] = 'with-bg-image';
+  }
+
   return array(
     'id' => $id,
     'classes' => $classes,

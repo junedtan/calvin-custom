@@ -18,6 +18,7 @@
         <?php 
           get_template_part('parts/sidebar', null, array(
             'page_metadata' => $page_metadata,
+            'mode' => 'mobile',
           ));
         ?>
       </div>    
@@ -33,6 +34,7 @@
           <?php 
             get_template_part('parts/sidebar', null, array(
               'page_metadata' => $page_metadata,
+              'mode' => 'desktop',
             ));
           ?>
         </div>   

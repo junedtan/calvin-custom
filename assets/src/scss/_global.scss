@@ -96,6 +96,10 @@ $spacer-max: 11;
   margin-top: #{0.25 * $vs-unit};
 }
 
+.mb-05 {
+  margin-bottom: #{0.5 * $vs-unit};
+}
+
 @for $counter from 1 to $spacer-max {
   .mb--#{$counter} {
     margin-bottom: #{-$counter * $vs-unit};
@@ -188,4 +192,23 @@ $spacer-max: 11;
     }
   }
 
+}
+
+form {
+  input[type="hidden"] + br {
+    display: none;
+  }
+}
+
+form.form-hide-labels {
+  .gfield {
+    position: relative;
+    overflow: hidden;
+    label {
+      position: absolute;
+      top: -9999px;
+      left: -9999px;
+      opacity: 0;
+    }
+  }
 }

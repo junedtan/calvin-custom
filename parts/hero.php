@@ -61,6 +61,8 @@
           </div>
         <?php endforeach; ?>
       </div>
+    <?php elseif ($hero_type == 'slides'): ?>
+      <div>Ini ntar buat hero slider</div>
     <?php endif; ?>
     <div class="overlay hero-overlay"></div>
     <?php 

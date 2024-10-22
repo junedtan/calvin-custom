@@ -1,3 +1,11 @@
+section.with-bg-image {
+  position: relative;
+  > .grid-container {
+    position: relative;
+    z-index: 2;
+  }
+}
+
 .block-media {
   &.type-single-image, &.type-slider {
   }

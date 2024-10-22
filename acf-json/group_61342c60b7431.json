@@ -1,7 +1,25 @@
 {
     "key": "group_61342c60b7431",
-    "title": "Block: Text",
+    "title": "Block : Text",
     "fields": [
+        {
+            "key": "field_671395e66dd79",
+            "label": "Content",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0,
+            "selected": 0
+        },
         {
             "key": "field_61342c6c04b8d",
             "label": "Text",
@@ -48,7 +66,7 @@
             }
         ]
     ],
-    "menu_order": 0,
+    "menu_order": 5,
     "position": "normal",
     "style": "default",
     "label_placement": "top",
@@ -57,5 +75,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1720103516
+    "modified": 1729336820
 }

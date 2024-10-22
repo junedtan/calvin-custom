@@ -25,6 +25,12 @@ $css_vars = $block_meta['css_vars'];
 </style>
 
 <section id="<?php echo esc_attr( $id ); ?>" class="<?php echo esc_attr( implode(' ', $classes) ); ?>" style="<?php echo esc_attr( implode(';', $css_vars) ); ?>">
+  <?php 
+    get_template_part('parts/block-bg-image', null, array(
+      'block_fields' => $block_fields,
+      'block_meta' => $block_meta,
+    ));
+  ?>
   <div class="grid-container">
     <div class="grid-x">
       <div class="cell columns-container">

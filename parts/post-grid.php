@@ -5,15 +5,13 @@
   $post_count = isset($args['post_count']) ? $args['post_count'] : -1;
   $item_template = isset($args['item_template']) ? $args['item_template'] : '';
   $items_per_row = isset($args['items_per_row']) ? $args['items_per_row'] : 4;
-  $title = isset($args['title']) ? $args['title'] : '';
   $cta = isset($args['cta']) ? $args['cta'] : null;
   $grid_class = isset($args['grid_class']) ? $args['grid_class'] : '';
-  $title_class = 'numbers'; // option lain akan diimplement someday isset($args['title_class']) ? $args['title_class'] : v'align-middle';
 
   $use_paging = isset($args['use_paging']) ? $args['use_paging'] : false;
   $items_per_page = isset($args['items_per_page']) ? $args['items_per_page'] : 0;
   $use_paging = $use_paging && $items_per_page > 0;
-  $paging_type = isset($args['paging_type']) ? $args['paging_type'] : 'numbers';
+  $paging_type = 'numbers'; // option lain akan diimplement someday isset($args['title_class']) ? $args['title_class'] : v'align-middle';
 
   switch ($items_per_row) {
     case 4: 
@@ -56,21 +54,9 @@
   }
 ?>
 
-<?php if ($title || $cta): ?>
-<div class="grid-x grid-margin-x <?php print $title_class; ?>">
-  <?php if ($title): ?>
-    <div class="cell auto cancel-last-margin">
-      <h3 class="h2-style"><?php print $title; ?></h3>
-    </div>
-  <?php endif; ?>
-  <?php if ($cta): ?>
-    <div class="cell shrink show-for-medium text-right">
-      <?php print do_shortcode('[cta-link url="'.$cta['url'].'" label="'.$cta['title'].'"]')?>
-    </div>
-  <?php endif; ?>
-</div>
-<?php endif; ?>
-
+<?php 
+  get_template_part('parts/block-content-index-title', null, $args);
+?>
 <div class="grid-x grid-margin-x post-grid <?php print $grid_class; ?>" data-current-page="1" data-page-count="<?php print count($posts_by_pages); ?>">
   <?php if ($item_template): ?>
     <?php foreach ($posts_by_pages as $idx => $page_posts): ?>
