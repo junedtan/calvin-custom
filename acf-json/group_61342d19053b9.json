@@ -73,6 +73,34 @@
             "preview_size": "medium"
         },
         {
+            "key": "field_671923d33c015",
+            "label": "Parallax?",
+            "name": "parallax",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_6712788c61bde",
+                        "operator": "!=empty"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "allow_in_bindings": 0,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
             "key": "field_66866241b3e6f",
             "label": "Top Margin",
             "name": "top_margin",
@@ -140,7 +168,7 @@
             }
         ]
     ],
-    "menu_order": 10,
+    "menu_order": 11,
     "position": "normal",
     "style": "default",
     "label_placement": "top",
@@ -149,5 +177,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1729336769
+    "modified": 1729700845
 }

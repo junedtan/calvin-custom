@@ -39,7 +39,7 @@ $(document).ready(function($) {
     wrapAround: true,
     draggable: false,
     pageDots: false,
-    prevNextButtons: false,
+    prevNextButtons: true,
   };
   $('.hero-carousel').each(function() {
     var $current = $(this);

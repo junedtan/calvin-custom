@@ -12,13 +12,18 @@
     <div class="grid-container">
       <div class="grid-x grid-margin-x">
         <div class="cell flex-container flex-dir-column <?php print $content_classes['container']; ?> cancel-last-margin">
-          <?php if ($content['title']): ?>
+          <?php if (!empty($content['title'])): ?>
             <h2 class="<?php print $content_classes['title'];?>"><?php print $content['title']; ?></h2>
           <?php endif; ?>
-          <?php if ($content['subtitle']): ?>
+          <?php if (!empty($content['subtitle'])): ?>
             <p class="<?php print $content_classes['subtitle'];?>"><?php print $content['subtitle']; ?></p>
           <?php endif; ?>
-          <?php if ($content['cta']): ?>
+          <?php if (!empty($content['text'])): ?>
+            <div class="hero-text">
+              <?php print apply_filters('the_content', $content['text']); ?>
+            </div>
+          <?php endif; ?>
+          <?php if (!empty($content['cta'])): ?>
             <p>
               <a href="<?php print $content['cta']['url']; ?>" class="<?php print $content_classes['cta'];?>" target="<?php print $content['cta']['target']; ?>"><?php print $content['cta']['title']; ?></a>
             </p>

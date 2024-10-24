@@ -72,6 +72,12 @@ body {
   }
 }
 
+.hero.slider {
+  .flickity-prev-next-button {
+    display: none;
+  }
+}
+
 .outer-container {
   position: relative;
   &.with-sidebar {

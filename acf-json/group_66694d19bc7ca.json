@@ -116,6 +116,35 @@
                     "preview_size": "medium"
                 },
                 {
+                    "key": "field_6719283e9378b",
+                    "label": "Parallax",
+                    "name": "parallax",
+                    "aria-label": "",
+                    "type": "true_false",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_670aadb4314d8",
+                                "operator": "==",
+                                "value": "image"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "message": "",
+                    "default_value": 0,
+                    "allow_in_bindings": 0,
+                    "ui": 0,
+                    "ui_on_text": "",
+                    "ui_off_text": ""
+                },
+                {
                     "key": "field_670c9c77d7013",
                     "label": "Animation Type",
                     "name": "animation_type",
@@ -129,6 +158,13 @@
                                 "field": "field_670aadb4314d8",
                                 "operator": "==",
                                 "value": "slider"
+                            }
+                        ],
+                        [
+                            {
+                                "field": "field_670aadb4314d8",
+                                "operator": "==",
+                                "value": "slides"
                             }
                         ]
                     ],
@@ -200,6 +236,13 @@
                                 "field": "field_670aadb4314d8",
                                 "operator": "==",
                                 "value": "slider"
+                            }
+                        ],
+                        [
+                            {
+                                "field": "field_670aadb4314d8",
+                                "operator": "==",
+                                "value": "slides"
                             }
                         ]
                     ],
@@ -428,7 +471,7 @@
             }
         ]
     ],
-    "menu_order": 2,
+    "menu_order": 3,
     "position": "normal",
     "style": "default",
     "label_placement": "top",
@@ -437,5 +480,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1729263711
+    "modified": 1729701981
 }

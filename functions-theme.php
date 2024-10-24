@@ -85,10 +85,17 @@ function ccm_get_block_metadata($block, $block_type) {
     $classes[] = 'with-bg-image';
   }
 
+  $parallax_bg = get_field('parallax');
+
+  if ($parallax_bg) {
+    $css_vars[] = 'background-color:transparent !important';
+  }
+
   return array(
     'id' => $id,
     'classes' => $classes,
     'css_vars' => $css_vars,
+    'parallax_bg' => $parallax_bg,
   );
 
 }
@@ -294,6 +301,7 @@ function ccm_get_pages_hierarchy($parent_id=null) {
         if ($level2_data->post_parent == $level1_data->ID) {
           $result[$level1_data->ID]['children'][$level2_data->ID] = array(
             'title' => $level2_data->post_title,
+            'parent_id' => $level1_data->post_name,
             'post_name' => $level2_data->post_name,
             'permalink' => get_permalink($level2_data),
             'current' => ($level2_data->ID == $current_page_id),
@@ -304,6 +312,7 @@ function ccm_get_pages_hierarchy($parent_id=null) {
             if ($level3_data->post_parent == $level2_data->ID) {
               $result[$level1_data->ID]['children'][$level2_data->ID]['children'][$level3_data->ID] = array(
                 'title' => $level3_data->post_title,
+                'parent_id' => $level2_data->post_name,
                 'post_name' => $level3_data->post_name,
                 'permalink' => get_permalink($level3_data),
                 'current' => ($level3_data->ID == $current_page_id),
