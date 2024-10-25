@@ -50,7 +50,8 @@ add_shortcode('icon', 'ccm_shortcode_icon');
 
 function ccm_shortcode_cta_link($args=array()) {
   $use_caret = true; // dikembangkan kemudian
-  return '<a href="'.$args['url'].'" class="cta-link" target="'.(isset($args['target']) ? $args['target'] : '').'"><span>'.$args['label'].'</span>'.($use_caret ? '<span class="ph ph-caret-right"></span>' : '').'</a>';
+  $classes = isset($args['classes']) ? $args['classes'] : '';
+  return '<a href="'.$args['url'].'" class="cta-link '.$classes.'" target="'.(isset($args['target']) ? $args['target'] : '').'"><span>'.$args['label'].'</span>'.($use_caret ? '<span class="ph ph-caret-right"></span>' : '').'</a>';
 }
 add_shortcode('cta-link', 'ccm_shortcode_cta_link');
 
