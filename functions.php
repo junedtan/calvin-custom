@@ -1,5 +1,5 @@
 <?php
-if ( !defined('CSS_JS_VERSION') ) define( 'CSS_JS_VERSION', '1.00');
+if ( !defined('CSS_JS_VERSION') ) define( 'CSS_JS_VERSION', '1.01');
 if ( !defined('TEMPLATE_PATH') ) define( 'TEMPLATE_PATH', get_bloginfo('stylesheet_directory'));
 if ( !defined('TEMPLATE_IMAGE_PATH') ) define( 'TEMPLATE_IMAGE_PATH', get_bloginfo('stylesheet_directory') . '/assets/img');
 

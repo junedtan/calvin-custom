@@ -141,8 +141,6 @@
       }
     }
 
-    console.log(this.mirrorContainer);
-
     this.$mirror = $('<div />').prependTo(this.mirrorContainer);
 
     var slider = this.$element.find('>.parallax-slider');

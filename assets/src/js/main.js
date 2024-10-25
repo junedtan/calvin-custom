@@ -20,7 +20,9 @@ $(document).ready(function($) {
   pageDimensions.breadcrumbHeight = $('.breadcrumb-container').outerHeight();
   $('body').css('--breadcrumb-height', pageDimensions.breadcrumbHeight+'px');
   pageDimensions.headerHeight = $('header').outerHeight();
+  pageDimensions.mobileSidebarHeight = $('.mobile-sidebar').outerHeight()
   $('body').css('--header-height', pageDimensions.headerHeight+'px');
+  $('body').css('--mobile-sidebar-height', pageDimensions.mobileSidebarHeight+'px');
 
   // headroom
   var headroom  = new Headroom(document.querySelector("header"));
