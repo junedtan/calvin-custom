@@ -371,7 +371,7 @@ function ccm_generate_breadcrumb_items() {
   $links[] = array(
     'level' => 0,
     'url' => '/',
-    'label' => apply_filters('ccm_breadcrumb_home_icon', '<span class="breadcrumb-home fa-solid fa-house">')
+    'label' => apply_filters('ccm_breadcrumb_home_icon', '<span class="breadcrumb-home ph-fill ph-house">')
   );
   foreach ($page_hierarchy as $level1_id => $level1_data) {
     if ($level1_data['current']) {

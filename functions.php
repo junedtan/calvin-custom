@@ -25,6 +25,11 @@ function ccm_body_class($classes) {
   if (is_front_page() == FALSE) {
     $classes[] = 'not-home';
   }
+  // has hero?
+  $hero = get_field('hero');
+  if (isset($hero['type']) && $hero['type'] != 'none') {
+    $classes[] = 'with-hero';
+  }
   // post type
   $classes[] = sprintf('post-type-%s', $post->post_type);
   // page slug

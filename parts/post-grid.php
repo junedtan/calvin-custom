@@ -77,12 +77,12 @@
 <?php if ($use_paging): ?>
   <div class="grid-x post-grid-pager">
     <div class="cell"><hr></div>
-    <div class="cell">
-      <a href="javascript:void(0)" class="pager prev disabled" data-page="prev"><span class="fa-regular fa-chevron-left"></span></a>
+    <div class="cell flex-container align-middle">
+      <a href="javascript:void(0)" class="pager prev disabled" data-page="prev"><span class="ph ph-caret-left"></span></a>
       <?php for ($i=1; $i<=count($posts_by_pages); $i++): ?>
         <a class="pager page <?php print ($i==1) ? 'active' : ''; ?>" href="javascript:void(0)" data-page="<?php print $i; ?>"><?php print $i; ?></a>
       <?php endfor; ?>
-      <a href="javascript:void(0)" class="pager next" data-page="next"><span class="fa-regular fa-chevron-right"></span></a>
+      <a href="javascript:void(0)" class="pager next" data-page="next"><span class="ph ph-caret-right"></span></a>
     </div>
   </div>
 <?php endif; ?>

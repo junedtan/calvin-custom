@@ -48,6 +48,7 @@ $(document).ready(function($) {
     var args = heroFlickityArgs;
     if (speed) {
       args.autoPlay = parseInt(speed);
+      args.pauseAutoPlayOnHover = false;
     }
     if (animation == 'fade') {
       args.fade = true;

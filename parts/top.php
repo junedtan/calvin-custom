@@ -1,7 +1,7 @@
 <?php 
   $global_fields = get_fields('option');
   $show_main_nav_on = apply_filters('ccm_show_main_nav_on', 'medium');
-  $hamburger_icon = apply_filters('ccm_hamburger_icon', '<span class="fa-regular fa-bars"></span>');
+  $hamburger_icon = apply_filters('ccm_hamburger_icon', '<span class="ph ph-list"></span>');
 ?> 
 
 <header class="headroom--top bg-color-<?php print $global_fields['theme_header_background_color']; ?>">
@@ -40,7 +40,7 @@
           </div>
           <div class="cell shrink hide-for-<?php print $show_main_nav_on; ?>">
             <a href="#" class="menu-toggle" title="Close Navigation Menu">
-            <span class="fa-solid fa-times"></span>
+            <span class="ph ph-x"></span>
             </a>
           </div>
         </div>

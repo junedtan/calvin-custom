@@ -121,7 +121,7 @@
     <?php endif; ?>
   </section>
 <?php else: ?>
-  <section class="pt-1">
+  <section class="pt-1 title-no-hero">
     <div class="grid-container">
       <div class="grid-x grid-margin-x">
         <div class="cell cancel-last-margin"><h2 class="h1-style"><?php the_title(); ?></h2></div>

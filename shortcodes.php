@@ -30,7 +30,7 @@ function ccm_shortcode_social_media($args=array()) {
   $result = '';
   if (!is_array($socmed)) return '';
   foreach ($socmed as $socmed_item) {
-    $result .= '<span class="socmed-item"><a href="'.$socmed_item['url'].'" target="_blank"><span class="fa-brands fa-'.$socmed_item['type'].'"></span></a></span>';
+    $result .= '<span class="socmed-item"><a href="'.$socmed_item['url'].'" target="_blank"><span class="ph-fill ph-'.$socmed_item['type'].'-logo"></span></a></span>';
   }
   return '<span class="socmed-container">'.$result.'</span>';
 }
@@ -39,7 +39,18 @@ add_shortcode('social-media', 'ccm_shortcode_social_media');
 function ccm_shortcode_icon($args=array()) {
   $icon = $args['icon'];
   $style = 'regular';
-  return '<span class="icon fa-'.$style.' fa-'.$icon.'"></span>';
+  if ($style != 'regular') {
+    $style = 'ph-'.$style;
+  } else {
+    $style = 'ph';
+  }
+  return '<span class="icon '.$style.' ph-'.$icon.'"></span>';
 }
 add_shortcode('icon', 'ccm_shortcode_icon');
+
+function ccm_shortcode_cta_link($args=array()) {
+  $use_caret = true; // dikembangkan kemudian
+  return '<a href="'.$args['url'].'" class="cta-link" target="'.(isset($args['target']) ? $args['target'] : '').'"><span>'.$args['label'].'</span>'.($use_caret ? '<span class="ph ph-caret-right"></span>' : '').'</a>';
+}
+add_shortcode('cta-link', 'ccm_shortcode_cta_link');
 
