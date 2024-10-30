@@ -5,6 +5,7 @@
 ?> 
 
 <header class="headroom--top bg-color-<?php print $global_fields['theme_header_background_color']; ?>">
+  <?php do_action('ccm_before_inner_header'); ?>
   <div class="grid-container">
     <div class="grid-x align-justify align-middle cancel-last-margin">
       <div class="cell shrink logo-container">
@@ -28,6 +29,7 @@
       <?php endif; ?>
     </div>
   </div>
+  <?php do_action('ccm_after_inner_header'); ?>
 </header>
 
 <div class="hide-for-<?php print $show_main_nav_on; ?> mobile-navigation bg-color-<?php print $global_fields['theme_mobile_nav_background_color']; ?>" aria-hidden="true">
