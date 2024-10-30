@@ -1,4 +1,4 @@
-$(document).foundation();
+jQuery(document).foundation();
 
 var pageDimensions = {
   sidebarHeight: 0,
@@ -12,7 +12,7 @@ var blockSettings = {
   }
 };
 
-$(document).ready(function($) {
+jQuery(document).ready(function($) {
 
   //dimensions
   pageDimensions.sidebarHeight = $('.outer-container .sidebar-container').outerHeight();
