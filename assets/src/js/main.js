@@ -127,6 +127,8 @@ jQuery(document).ready(function($) {
     }
     $('html,body').animate({scrollTop: $postContainer.offset().top - blockSettings.postGrid.scrollOffset}, 500);  
   });
+  // parallax
+  $(window).trigger('resize.px.parallax');
 	// Adds Flex Video to YouTube and Vimeo Embeds
   $('iframe[src*="youtube.com"], iframe[src*="vimeo.com"]').each(function() {
     $(this).parent().addClass('responsive-embed widescreen')
