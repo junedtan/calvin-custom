@@ -231,6 +231,7 @@ function ccm_allowed_block_types( $allowed_blocks, $editor_context ) {
 add_filter( 'allowed_block_types_all', 'ccm_allowed_block_types', 10, 2);
 
 add_filter( 'gform_disable_form_theme_css', '__return_true' );
+add_filter( 'gform_force_hooks_js_output', '__return_true' );
 
 function ccm_custom_new_menu() {
   register_nav_menus(
