@@ -294,6 +294,7 @@ function ccm_get_pages_hierarchy($parent_id=null) {
         'post_name' => $level1_data->post_name,
         'permalink' => get_permalink($level1_data),
         'current' => ($level1_data->ID == $current_page_id),
+        'post_object' => $level1_data,
         'children' => [],
       );
       // level 2
@@ -305,6 +306,7 @@ function ccm_get_pages_hierarchy($parent_id=null) {
             'post_name' => $level2_data->post_name,
             'permalink' => get_permalink($level2_data),
             'current' => ($level2_data->ID == $current_page_id),
+            'post_object' => $level2_data,
             'children' => [],
           );
           // level 3
@@ -316,6 +318,7 @@ function ccm_get_pages_hierarchy($parent_id=null) {
                 'post_name' => $level3_data->post_name,
                 'permalink' => get_permalink($level3_data),
                 'current' => ($level3_data->ID == $current_page_id),
+                'post_object' => $level3_data,
                 'children' => [],
               );
               // level 3
